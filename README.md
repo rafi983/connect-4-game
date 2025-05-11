@@ -8,14 +8,14 @@ realistic projects.
 ## Table of contents
 
 - [Overview](#overview)
-    - [The challenge](#the-challenge)
-    - [Screenshots](#screenshot)
-    - [Links](#links)
+  - [The challenge](#the-challenge)
+  - [Screenshots](#screenshot)
+  - [Links](#links)
 - [My process](#my-process)
-    - [Built with](#built-with)
-    - [What I learned](#what-i-learned)
-    - [Continued development](#continued-development)
-    - [Useful resources](#useful-resources)
+  - [Built with](#built-with)
+  - [What I learned](#what-i-learned)
+  - [Continued development](#continued-development)
+  - [Useful resources](#useful-resources)
 - [Author](#author)
 - [Acknowledgments](#acknowledgments)
 
@@ -52,11 +52,11 @@ Users should be able to:
 
 - TypeScript for type-safe JavaScript code.
 - React - A JavaScript library for building user interfaces.
-    - React Hooks: useState, useEffect, useCallback, useContext, and lazy for
-      efficient state management and component rendering.
-    - Context API for managing game states across different components.
-    - React Router for navigational components.
-    - React Responsive for creating a responsive design.
+  - React Hooks: useState, useEffect, useCallback, useContext, and lazy for
+    efficient state management and component rendering.
+  - Context API for managing game states across different components.
+  - React Router for navigational components.
+  - React Responsive for creating a responsive design.
 - Custom game logic implemented in TypeScript.
 - SCSS for styling components.
 - React Testing Library for unit testing components.
@@ -91,7 +91,7 @@ In future projects, I want to focus on:
 
 - Website - riz82.vercel.app
 - Frontend Mentor -
-  [Astrix1234's Frontend Mentor Profile](https://www.frontendmentor.io/profile/rafi983)
+  [riz82's Frontend Mentor Profile](https://www.frontendmentor.io/profile/rafi983)
 
 ## Acknowledgments
 
