@@ -1,0 +1,21 @@
+.button {
+    font-size: 24px;
+    font-weight: 700;
+    width: 100%;
+    max-width: 400px;
+    height: 72px;
+    border: 3px solid var(--dark);
+    border-radius: 20px;
+    box-shadow: 0px 10px 0px 0px var(--dark);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 17px 0 20px;
+    transition: box-shadow 0.3s ease-in-out;
+
+    &:hover,
+    &:focus {
+        box-shadow: 0px 10px 0px 0px var(--dark-blue);
+        cursor: pointer;
+    }
+}

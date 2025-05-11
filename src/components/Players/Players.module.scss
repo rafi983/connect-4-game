@@ -1,0 +1,122 @@
+.players {
+    display: flex;
+    position: absolute;
+    z-index: 10;
+
+    &__player {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        background-color: var(--light);
+        border-radius: 20px;
+        border: 3px solid var(--dark);
+        box-shadow: 0px 10px 0px 0px var(--dark);
+        position: relative;
+    }
+
+    &__playerName {
+        font-weight: 700;
+    }
+
+    &__playerScore {
+        font-weight: 700;
+    }
+
+    &__playerOne,
+    &__playerTwo {
+        position: absolute;
+        z-index: 20;
+    }
+}
+
+.playersDesktop {
+    gap: 752px;
+    top: 351px;
+    left: 50%;
+    transform: translate(-50%, 0);
+
+    &__player {
+        width: 141px;
+        height: 160px;
+        padding-top: 46px;
+        flex-direction: column;
+    }
+
+    &__playerName {
+        font-size: 20px;
+    }
+
+    &__playerScore {
+        font-size: 56px;
+    }
+
+    &__playerOne,
+    &__playerTwo {
+        top: 0;
+        transform: translateY(-50%);
+    }
+
+}
+
+.playersTablet {
+    gap: 41px;
+    top: 114px;
+    left: 50%;
+    transform: translate(-50%, 0);
+
+    &__player {
+        width: 272px;
+        height: 100px;
+        justify-content: space-evenly;
+    }
+
+    &__playerName {
+        font-size: 20px;
+    }
+
+    &__playerScore {
+        font-size: 56px;
+    }
+
+    &__playerOne {
+        left: 0;
+        transform: translateX(-50%);
+    }
+
+    &__playerTwo {
+        right: 0;
+        transform: translateX(50%);
+    }
+}
+
+.playersMobile {
+    gap: 21px;
+    top: 110px;
+    left: 50%;
+    transform: translate(-50%, 0);
+
+    &__player {
+        width: 142px;
+        height: 81px;
+        flex-direction: column;
+        padding-top: 10px;
+    }
+
+    &__playerName {
+        font-size: 16px;
+    }
+
+    &__playerScore {
+        font-size: 32px;
+    }
+
+    &__playerOne {
+        left: 0;
+        transform: translateX(-50%);
+    }
+
+    &__playerTwo {
+        right: 0;
+        transform: translateX(50%);
+    }
+}

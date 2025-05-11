@@ -1,0 +1,172 @@
+.startWindow {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    background-color: var(--light-blue);
+
+    &__buttons {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+        margin-top: 79px;
+    }
+
+    &__vsCpu {
+        background-color: var(--rose);
+    }
+
+    &__vsPlayer {
+        background-color: var(--yellow);
+    }
+}
+
+.startWindowTabletDesktop {
+    max-width: 480px;
+    border: 3px solid var(--dark);
+    box-shadow: 0px 10px 0px 0px var(--dark);
+    border-radius: 40px;
+    padding: 70px 40px 60px 40px;
+}
+
+.startWindowMobile {
+    height: 100%;
+    padding: 203px 20px 0 20px;
+}
+
+.gameRulesContainer {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    z-index: 500;
+    width: 100%;
+    scale: 1;
+    opacity: 1;
+    visibility: visible;
+    transition: all 0.5s ease-in-out;
+}
+
+.gameRulesContainerTabletDesktop {
+    max-width: 480px;
+    background-color: var(--dark-blue);
+    padding: 50px 0 50px 0;
+}
+
+.gameRulesContainerMobile {
+    max-width: 401px;
+    padding: 30px;
+    background-color: var(--light-blue);
+}
+
+.gameRulesWindow {
+    width: 100%;
+    background-color: var(--light);
+    border-radius: 40px;
+    border: 3px solid var(--dark);
+    box-shadow: 0px 10px 0px 0px var(--dark);
+    position: relative;
+
+    &__title {
+        text-align: center;
+        margin-bottom: 29px;
+        font-size: 56px;
+    }
+
+    &__titleText {
+        color: var(--light-blue);
+        font-size: 20px;
+        margin-bottom: 16px;
+    }
+
+    &__text {
+        font-size: 16px;
+        margin-bottom: 16px;
+        font-weight: 500;
+    }
+
+    &__textRules {
+        font-size: 16px;
+        font-weight: 500;
+        display: flex;
+        flex-direction: column;
+        gap: 11px;
+    }
+
+    &__textRulesItem1 {
+        display: flex;
+        gap: 19px;
+    }
+
+    &__textRulesItem2and3 {
+        display: flex;
+        gap: 17px;
+    }
+
+    &__textRulesItem4 {
+        display: flex;
+        gap: 16px;
+    }
+
+    &__textRulesCount {
+        font-weight: 700;
+    }
+
+    &__btnCheck {
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translate(-50%, 50%);
+        border: none;
+        cursor: pointer;
+        background-color: transparent;
+    }
+
+    &__iconCheck,
+    &__iconCheckHover {
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translate(-50%, 50%);
+    }
+
+    &__iconCheck {
+        visibility: visible;
+        opacity: 1;
+    }
+
+    &__iconCheckHover {
+        visibility: hidden;
+        opacity: 0;
+    }
+
+    &__btnCheck:hover .gameRulesWindow__iconCheck,
+    &__btnCheck:focus .gameRulesWindow__iconCheck {
+        visibility: hidden;
+        opacity: 0;
+    }
+
+    &__btnCheck:hover .gameRulesWindow__iconCheckHover,
+    &__btnCheck:focus .gameRulesWindow__iconCheckHover {
+        visibility: visible;
+        opacity: 1;
+    }
+}
+
+.gameRulesWindowTabletDesktop {
+    padding: 30px 34px 56px 34px;
+}
+
+.gameRulesWindowMobile {
+    padding: 30px 20px 63px 20px;
+}
+
+.rulesHidden {
+    scale: 0;
+    opacity: 0;
+    visibility: hidden;
+}
