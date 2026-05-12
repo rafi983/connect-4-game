@@ -13,7 +13,7 @@ This project recreates the classic Frontend Mentor Connect Four experience with:
 
 ## Live Demo
 
-- Repository: [Astrix1234/connect-four-game](https://github.com/Astrix1234/connect-four-game)
+- Repository: [Astrix1234/connect-four-game](https://github.com/rafi983/connect-4-game)
 - Live Site: [https://astrix1234.github.io/connect-four-game/](https://astrix1234.github.io/connect-four-game/)
 
 ## Screenshots
