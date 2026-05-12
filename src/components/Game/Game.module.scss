@@ -1,9 +1,10 @@
 .game {
     width: 100%;
-    height: 100vh;
+    min-height: 100vh;
     position: relative;
     display: flex;
-    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: auto;
 
     &__bottomBar {
         position: absolute;

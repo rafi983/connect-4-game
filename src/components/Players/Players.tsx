@@ -1,11 +1,11 @@
 import { useContext } from 'react';
-import scss from './Players.module.scss';
 import { useMediaQuery } from 'react-responsive';
+import { ReactComponent as Cpu } from '../../assets/images/cpu.svg';
 import { ReactComponent as PlayerOne } from '../../assets/images/player-one.svg';
 import { ReactComponent as PlayerTwo } from '../../assets/images/player-two.svg';
 import { ReactComponent as You } from '../../assets/images/you.svg';
-import { ReactComponent as Cpu } from '../../assets/images/cpu.svg';
 import { GameContext } from '../App';
+import scss from './Players.module.scss';
 
 interface PlayersProps {
   pointsPlayerOne: number;
@@ -22,39 +22,16 @@ export const Players: React.FC<PlayersProps> = ({
 }) => {
   const { playerVsPlayer } = useContext(GameContext);
 
-  const isMobile = useMediaQuery({ maxWidth: 768 });
-  const isTablet = useMediaQuery({ minWidth: 769, maxWidth: 1279 });
   const isDesktop = useMediaQuery({ minWidth: 1280 });
+  const isTablet = useMediaQuery({ minWidth: 769, maxWidth: 1279 });
 
-  let playersStyles = scss.players;
-  let playerStyles = scss.players__player;
-  let playerNameStyle = scss.players__playerName;
-  let playerScoreStyle = scss.players__playerScore;
-  let playerOneStyle = scss.players__playerOne;
-  let playerTwoStyle = scss.players__playerTwo;
-
-  if (isMobile) {
-    playersStyles += ` ${scss.playersMobile}`;
-    playerStyles += ` ${scss.playersMobile__player}`;
-    playerNameStyle += ` ${scss.playersMobile__playerName}`;
-    playerScoreStyle += ` ${scss.playersMobile__playerScore}`;
-    playerOneStyle += ` ${scss.playersMobile__playerOne}`;
-    playerTwoStyle += ` ${scss.playersMobile__playerTwo}`;
-  } else if (isTablet) {
-    playersStyles += ` ${scss.playersTablet}`;
-    playerStyles += ` ${scss.playersTablet__player}`;
-    playerNameStyle += ` ${scss.playersTablet__playerName}`;
-    playerScoreStyle += ` ${scss.playersTablet__playerScore}`;
-    playerOneStyle += ` ${scss.playersTablet__playerOne}`;
-    playerTwoStyle += ` ${scss.playersTablet__playerTwo}`;
-  } else if (isDesktop) {
-    playersStyles += ` ${scss.playersDesktop}`;
-    playerStyles += ` ${scss.playersDesktop__player}`;
-    playerNameStyle += ` ${scss.playersDesktop__playerName}`;
-    playerScoreStyle += ` ${scss.playersDesktop__playerScore}`;
-    playerOneStyle += ` ${scss.playersDesktop__playerOne}`;
-    playerTwoStyle += ` ${scss.playersDesktop__playerTwo}`;
-  }
+  const prefix = isDesktop ? 'Desktop' : isTablet ? 'Tablet' : 'Mobile';
+  const playersStyles = `${scss.players} ${scss[`players${prefix}`]}`;
+  const playerStyles = `${scss.players__player} ${scss[`players${prefix}__player`]}`;
+  const playerNameStyle = `${scss.players__playerName} ${scss[`players${prefix}__playerName`]}`;
+  const playerScoreStyle = `${scss.players__playerScore} ${scss[`players${prefix}__playerScore`]}`;
+  const playerOneStyle = `${scss.players__playerOne} ${scss[`players${prefix}__playerOne`]}`;
+  const playerTwoStyle = `${scss.players__playerTwo} ${scss[`players${prefix}__playerTwo`]}`;
 
   return (
     <div className={playersStyles}>

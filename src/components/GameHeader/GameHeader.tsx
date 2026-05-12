@@ -1,7 +1,7 @@
 import React from 'react';
-import scss from './GameHeader.module.scss';
 import { useMediaQuery } from 'react-responsive';
 import { ReactComponent as Logo } from '../../assets/images/logo.svg';
+import scss from './GameHeader.module.scss';
 
 type GameHeaderProps = {
   onClickMenu: () => void;
@@ -12,19 +12,17 @@ export const GameHeader: React.FC<GameHeaderProps> = ({
   onClickMenu,
   onClickRestart,
 }) => {
-  const isMobile = useMediaQuery({ maxWidth: 768 });
-  const isTablet = useMediaQuery({ minWidth: 769, maxWidth: 1279 });
   const isDesktop = useMediaQuery({ minWidth: 1280 });
+  const isTablet = useMediaQuery({ minWidth: 769, maxWidth: 1279 });
 
-  let gameHeaderStyle = scss.gameHeader;
-
-  if (isMobile) {
-    gameHeaderStyle += ` ${scss.gameHeaderMobile}`;
-  } else if (isTablet) {
-    gameHeaderStyle += ` ${scss.gameHeaderTablet}`;
-  } else if (isDesktop) {
-    gameHeaderStyle += ` ${scss.gameHeaderDesktop}`;
-  }
+  const gameHeaderStyle = [
+    scss.gameHeader,
+    isDesktop ? scss.gameHeaderDesktop : '',
+    !isDesktop && isTablet ? scss.gameHeaderTablet : '',
+    !isDesktop && !isTablet ? scss.gameHeaderMobile : '',
+  ]
+    .filter(Boolean)
+    .join(' ');
 
   return (
     <div className={gameHeaderStyle}>

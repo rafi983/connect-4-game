@@ -1,6 +1,6 @@
-import scss from './ModalMenuGame.module.scss';
 import { useMediaQuery } from 'react-responsive';
 import { Buttons } from '../Buttons/Buttons';
+import scss from './ModalMenuGame.module.scss';
 
 type ModalMenuGameProps = {
   onClickContinue: () => void;
@@ -13,23 +13,12 @@ export const ModalMenuGame: React.FC<ModalMenuGameProps> = ({
   onClickRestart,
   onClickQuit,
 }) => {
-  const isMobile = useMediaQuery({ maxWidth: 768 });
-  const isTablet = useMediaQuery({ minWidth: 769, maxWidth: 1279 });
   const isDesktop = useMediaQuery({ minWidth: 1280 });
+  const isTablet = useMediaQuery({ minWidth: 769, maxWidth: 1279 });
 
-  let modalMenuGameStyle = scss.modalMenuGame;
-  let pauseStyle = scss.modalMenuGame__pause;
-
-  if (isMobile) {
-    modalMenuGameStyle += ` ${scss.modalMenuGameMobile}`;
-    pauseStyle += ` ${scss.modalMenuGameMobile__pause}`;
-  } else if (isTablet) {
-    modalMenuGameStyle += ` ${scss.modalMenuGameTablet}`;
-    pauseStyle += ` ${scss.modalMenuGameTablet__pause}`;
-  } else if (isDesktop) {
-    modalMenuGameStyle += ` ${scss.modalMenuGameDesktop}`;
-    pauseStyle += ` ${scss.modalMenuGameDesktop__pause}`;
-  }
+  const prefix = isDesktop ? 'Desktop' : isTablet ? 'Tablet' : 'Mobile';
+  const modalMenuGameStyle = `${scss.modalMenuGame} ${scss[`modalMenuGame${prefix}`]}`;
+  const pauseStyle = `${scss.modalMenuGame__pause} ${scss[`modalMenuGame${prefix}__pause`]}`;
 
   return (
     <div className={modalMenuGameStyle}>

@@ -3,10 +3,10 @@ import { Outlet } from 'react-router-dom';
 
 export const Layout = () => {
   return (
-    <div style={{ width: '100vw' }}>
+    <main style={{ width: '100vw', minHeight: '100vh' }}>
       <Suspense fallback={null}>
         <Outlet />
       </Suspense>
-    </div>
+    </main>
   );
 };

@@ -1,14 +1,14 @@
 import { Helmet } from 'react-helmet-async';
 import { Game } from '../../components/Game/Game';
 
-export default function GamePage() {
+const pageStyle: React.CSSProperties = {
+  width: '100%',
+  minHeight: '100vh',
+};
+
+export default function GamePage(): JSX.Element {
   return (
-    <div
-      style={{
-        width: '100%',
-        height: '100%',
-      }}
-    >
+    <div style={pageStyle}>
       <Helmet>
         <title>Game</title>
       </Helmet>

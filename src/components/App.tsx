@@ -1,4 +1,4 @@
-import { lazy, createContext, useState, Dispatch, SetStateAction } from 'react';
+import { Dispatch, SetStateAction, createContext, lazy, useMemo, useState } from 'react';
 import { HelmetProvider } from 'react-helmet-async';
 import { Route, Routes } from 'react-router-dom';
 import { Layout } from './Layout/Layout';
@@ -12,10 +12,14 @@ export const GameContext = createContext({
 });
 
 export const App = () => {
-  const [playerVsPlayer, setPlayerVsPlayer] = useState(false);
+  const [playerVsPlayer, setPlayerVsPlayer] = useState<boolean>(false);
+  const contextValue = useMemo(
+    () => ({ playerVsPlayer, setPlayerVsPlayer }),
+    [playerVsPlayer]
+  );
 
   return (
-    <GameContext.Provider value={{ playerVsPlayer, setPlayerVsPlayer }}>
+    <GameContext.Provider value={contextValue}>
       <HelmetProvider>
         <Routes>
           <Route path="/" element={<Layout />}>

@@ -1,99 +1,179 @@
-# Frontend Mentor - Connect Four game solution
+# Connect Four Game (React + TypeScript)
 
-This is a solution to the
-[Connect Four game challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/connect-four-game-6G8QVH923s).
-Frontend Mentor challenges help you improve your coding skills by building
-realistic projects.
+A responsive Connect Four web game built with React and TypeScript.
 
-## Table of contents
+This project recreates the classic Frontend Mentor Connect Four experience with:
 
-- [Overview](#overview)
-  - [The challenge](#the-challenge)
-  - [Screenshots](#screenshot)
-  - [Links](#links)
-- [My process](#my-process)
-  - [Built with](#built-with)
-  - [What I learned](#what-i-learned)
-  - [Continued development](#continued-development)
-  - [Useful resources](#useful-resources)
-- [Author](#author)
-- [Acknowledgments](#acknowledgments)
+- `Player vs Player` and `Player vs CPU` modes
+- animated token drops
+- timer-based turns
+- match scoreboard
+- in-game pause menu
+- responsive desktop / tablet / mobile layouts
 
-## Overview
+## Live Demo
 
-### The challenge
+- Repository: [Astrix1234/connect-four-game](https://github.com/Astrix1234/connect-four-game)
+- Live Site: [https://astrix1234.github.io/connect-four-game/](https://astrix1234.github.io/connect-four-game/)
 
-Users should be able to:
+## Screenshots
 
-- View the game rules
-- Play a game of Connect Four against another human player (alternating turns on
-  the same computer)
-- View the optimal layout for the interface depending on their device's screen
-  size
-- See hover and focus states for all interactive elements on the page
-- **Bonus**: See the discs animate into their position when a move is made
-- **Bonus**: Play against the computer
+![Screenshot 1](./screenshots/Screenshot_1.png)
+![Screenshot 2](./screenshots/Screenshot_2.png)
+![Screenshot 3](./screenshots/Screenshot_3.png)
+![Screenshot 4](./screenshots/Screenshot_4.png)
 
-### Screenshots
+## Features
 
-![1](./screenshots/Screenshot_1.png) ![2](./screenshots/Screenshot_2.png)
-![3](./screenshots/Screenshot_3.png) ![4](./screenshots/Screenshot_4.png)
+### Gameplay
 
-### Links
+- 6x7 Connect Four board
+- Red player always starts the round
+- Win detection for:
+  - horizontal lines
+  - vertical lines
+  - both diagonal directions
+- Draw detection when board is full
+- Winning discs are highlighted
 
-- Solution URL:
-  [GitHub Repository](https://github.com/Astrix1234/connect-four-game)
-- Live Site URL:
-  [Connect Four Game](https://astrix1234.github.io/connect-four-game/)
+### Modes
 
-## My process
+- **Play vs CPU**
+  - human is Player 1 (red)
+  - CPU is Player 2 (yellow)
+  - CPU uses early-position heuristic + minimax search
+- **Play vs Player**
+  - two local players alternate turns on the same device
 
-### Built with
+### Round and Match Flow
 
-- TypeScript for type-safe JavaScript code.
-- React - A JavaScript library for building user interfaces.
-  - React Hooks: useState, useEffect, useCallback, useContext, and lazy for
-    efficient state management and component rendering.
-  - Context API for managing game states across different components.
-  - React Router for navigational components.
-  - React Responsive for creating a responsive design.
-- Custom game logic implemented in TypeScript.
-- SCSS for styling components.
-- React Testing Library for unit testing components.
+- 30-second turn timer
+- If timer reaches 0, the current player loses the round
+- `PLAY AGAIN` resets only the current round
+- `RESTART` resets the full match score + board state
+- Pause menu actions:
+  - continue game
+  - restart match
+  - quit game (back to start screen)
 
-### What I learned
+### Responsive UI
 
-This project was an excellent opportunity to deepen my understanding of React
-and TypeScript. I implemented a complex game logic that includes features like
-animations and AI for playing against the computer. It also reinforced my
-knowledge in responsive design and unit testing with React Testing Library.
+- Device breakpoints handled through `react-responsive`
+- Different board assets and class variants for mobile/tablet/desktop
+- Board marker follows cursor on desktop
 
-### Continued development
+## Tech Stack
 
-In future projects, I want to focus on:
+- **React 18**
+- **TypeScript**
+- **React Router v6**
+- **SCSS Modules**
+- **React Helmet Async**
+- **React Responsive**
+- **Create React App (`react-scripts`)**
 
-- Enhancing AI algorithms for a more challenging gameplay.
-- Implementing more complex animations and interactive UI elements.
-- Exploring state management solutions for large-scale applications.
+## Project Structure
 
-### Useful resources
+```text
+src/
+  assets/
+    images/
+  components/
+    App.tsx
+    Layout/
+    Buttons/
+    StartWindow/
+    GameHeader/
+    Players/
+    ModalMenuGame/
+    Game/
+      Game.tsx
+      gameWithAILogic.tsx
+  pages/
+    StartPage/
+    GamePage/
+  stylesheets/
+    vars.css
+  index.tsx
+  index.css
+```
 
-- [React Documentation](https://reactjs.org/) - A comprehensive guide to React's
-  features and APIs.
-- [SCSS Guide](https://sass-lang.com/documentation) - This helped me effectively
-  utilize SCSS for styling.
-- [React Testing Library](https://testing-library.com/docs/react-testing-library/intro/) -
-  A useful resource for writing maintainable tests for React components.
-- [TypeScript Documentation](https://www.typescriptlang.org/docs/) - Essential
-  for understanding and using TypeScript in your projects.
+## Getting Started
+
+### Prerequisites
+
+- Node.js `>= 18` recommended
+- npm `>= 9`
+
+### Installation
+
+```bash
+npm install
+```
+
+### Run in Development
+
+```bash
+npm start
+```
+
+Then open `http://localhost:3000`.
+
+### Production Build
+
+```bash
+npm run build
+```
+
+Build output is generated in the `build/` directory.
+
+### Tests
+
+```bash
+npm test
+```
+
+## Available Scripts
+
+- `npm start` — start development server
+- `npm run build` — create optimized production build
+- `npm test` — run test runner
+- `npm run eject` — eject CRA config (irreversible)
+- `npm run predeploy` — build before deploy
+- `npm run deploy` — publish `build/` to GitHub Pages
+
+## Implementation Notes
+
+- Global mode state (`playerVsPlayer`) is shared via `GameContext` in `App.tsx`.
+- Routing is split into:
+  - `/` → start screen
+  - `/game` → game screen
+- The board is represented as a 2D array (`Cell[][]`).
+- AI helpers in `gameWithAILogic.tsx` expose:
+  - `pickBestMove` (early game)
+  - `minimax` (deeper game state evaluation)
+- UI classes intentionally map to SCSS module contracts to preserve the original visual design.
+
+## Deployment
+
+This project is configured for GitHub Pages using:
+
+- `homepage` in `package.json`
+- `gh-pages` deploy scripts
+
+To deploy:
+
+```bash
+npm run deploy
+```
+
+## Challenge Source
+
+Based on the Frontend Mentor challenge:
+
+- [Connect Four game challenge](https://www.frontendmentor.io/challenges/connect-four-game-6G8QVH923s)
 
 ## Author
 
-- Website - riz82.vercel.app
-- Frontend Mentor -
-  [riz82's Frontend Mentor Profile](https://www.frontendmentor.io/profile/rafi983)
-
-## Acknowledgments
-
-I'd like to thank the Frontend Mentor community for providing this challenge,
-which has been instrumental in enhancing my web development skills.
+- Frontend Mentor: [@rafi983](https://www.frontendmentor.io/profile/rafi983)
+- Portfolio: [riz82.vercel.app](https://riz82.vercel.app)

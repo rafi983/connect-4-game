@@ -1,19 +1,19 @@
 import { Helmet } from 'react-helmet-async';
 import { StartWindow } from '../../components/StartWindow/StartWindow';
 
-export default function StartPage() {
+const containerStyle: React.CSSProperties = {
+  width: '100%',
+  minHeight: '100vh',
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  backgroundColor: 'var(--dark-blue)',
+  position: 'relative',
+};
+
+export default function StartPage(): JSX.Element {
   return (
-    <div
-      style={{
-        width: '100%',
-        height: '100vh',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        backgroundColor: 'var(--dark-blue)',
-        position: 'relative',
-      }}
-    >
+    <div style={containerStyle}>
       <Helmet>
         <title>Start</title>
       </Helmet>

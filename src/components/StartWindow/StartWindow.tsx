@@ -1,44 +1,39 @@
-import { useState, useContext } from 'react';
-import scss from './StartWindow.module.scss';
-import { useNavigate } from 'react-router-dom';
+import { useContext, useState } from 'react';
 import { useMediaQuery } from 'react-responsive';
-import { Buttons } from '../Buttons/Buttons';
+import { useNavigate } from 'react-router-dom';
+import { ReactComponent as IconCheckHover } from '../../assets/images/icon-check-hover.svg';
+import { ReactComponent as IconCheck } from '../../assets/images/icon-check.svg';
+import { ReactComponent as Logo } from '../../assets/images/logo.svg';
 import { ReactComponent as PlayerVsCpu } from '../../assets/images/player-vs-cpu.svg';
 import { ReactComponent as PlayerVsPlayer } from '../../assets/images/player-vs-player.svg';
-import { ReactComponent as Logo } from '../../assets/images/logo.svg';
-import { ReactComponent as IconCheck } from '../../assets/images/icon-check.svg';
-import { ReactComponent as IconCheckHover } from '../../assets/images/icon-check-hover.svg';
 import { GameContext } from '../App';
+import { Buttons } from '../Buttons/Buttons';
+import scss from './StartWindow.module.scss';
 
 export const StartWindow = () => {
-  const [isOpened, setIsOpened] = useState(false);
+  const [showRules, setShowRules] = useState(false);
   const navigate = useNavigate();
   const { setPlayerVsPlayer } = useContext(GameContext);
 
-  const isMobile = useMediaQuery({ maxWidth: 768 });
-  const isTabletDesktop = useMediaQuery({ minWidth: 769 });
-
-  let startWindowStyles = scss.startWindow;
-  let gameRulesWindowStyles = scss.gameRulesWindow;
-  let gameRulesContainerStyles = scss.gameRulesContainer;
-
-  if (isMobile) {
-    startWindowStyles += ` ${scss.startWindowMobile}`;
-    gameRulesWindowStyles += ` ${scss.gameRulesWindowMobile}`;
-    gameRulesContainerStyles += ` ${scss.gameRulesContainerMobile}`;
-  } else if (isTabletDesktop) {
-    startWindowStyles += ` ${scss.startWindowTabletDesktop}`;
-    gameRulesWindowStyles += ` ${scss.gameRulesWindowTabletDesktop}`;
-    gameRulesContainerStyles += ` ${scss.gameRulesContainerTabletDesktop}`;
-  }
-
+  const isTabletOrDesktop = useMediaQuery({ minWidth: 769 });
+  const startWindowStyles = `${scss.startWindow} ${
+    isTabletOrDesktop ? scss.startWindowTabletDesktop : scss.startWindowMobile
+  }`;
+  const gameRulesWindowStyles = `${scss.gameRulesWindow} ${
+    isTabletOrDesktop
+      ? scss.gameRulesWindowTabletDesktop
+      : scss.gameRulesWindowMobile
+  }`;
+  const gameRulesContainerStyles = `${scss.gameRulesContainer} ${
+    isTabletOrDesktop
+      ? scss.gameRulesContainerTabletDesktop
+      : scss.gameRulesContainerMobile
+  }`;
   const gameRulesContainerClasses = `${gameRulesContainerStyles} ${
-    !isOpened ? scss['rulesHidden'] : ''
+    showRules ? '' : scss.rulesHidden
   }`;
 
-  const handleGameRulesToggle = () => {
-    setIsOpened(!isOpened);
-  };
+  const toggleRules = () => setShowRules(prev => !prev);
 
   const handlePlayVsPlayer = () => {
     setPlayerVsPlayer(true);
@@ -69,7 +64,7 @@ export const StartWindow = () => {
             classes={scss.startWindow__vsPlayer}
             onClick={handlePlayVsPlayer}
           />
-          <Buttons text="GAME RULES" onClick={handleGameRulesToggle} />
+          <Buttons text="GAME RULES" onClick={toggleRules} />
         </div>
       </div>
       <div className={gameRulesContainerClasses}>
@@ -108,7 +103,7 @@ export const StartWindow = () => {
           </ul>
           <button
             className={scss.gameRulesWindow__btnCheck}
-            onClick={handleGameRulesToggle}
+            onClick={toggleRules}
           >
             <IconCheck className={scss.gameRulesWindow__iconCheck} />
             <IconCheckHover className={scss.gameRulesWindow__iconCheckHover} />

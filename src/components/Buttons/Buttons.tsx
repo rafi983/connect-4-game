@@ -1,4 +1,4 @@
-import React, { ReactElement } from 'react';
+import { ReactElement } from 'react';
 import scss from './Buttons.module.scss';
 
 type ButtonsProps = {
@@ -14,12 +14,12 @@ export const Buttons: React.FC<ButtonsProps> = ({
   classes,
   onClick,
 }) => {
+  const className = [scss.button, classes].filter(Boolean).join(' ');
+
   return (
-    <>
-      <button className={`${scss.button} ${classes}`} onClick={onClick}>
-        <span>{text} </span>
-        <span>{icon}</span>
-      </button>
-    </>
+    <button type="button" className={className} onClick={onClick}>
+      <span>{text}</span>
+      {icon ? <span>{icon}</span> : null}
+    </button>
   );
 };

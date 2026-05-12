@@ -1,0 +1,175 @@
+.app {
+  min-height: 100vh;
+  font-family: "Space Grotesk", sans-serif;
+  color: #10103a;
+}
+
+.start-screen {
+  display: grid;
+  place-items: center;
+  background: radial-gradient(circle at top, #9ca6ff 0%, #5b67f0 45%, #373fbb 100%);
+  padding: 16px;
+}
+
+.card,
+.modal {
+  width: min(420px, 100%);
+  background: #ffffff;
+  border: 3px solid #10103a;
+  border-radius: 18px;
+  padding: 24px;
+  box-shadow: 0 12px 0 #10103a;
+}
+
+.card h1,
+.modal h2,
+.modal h3 {
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+button {
+  width: 100%;
+  border: 3px solid #10103a;
+  border-radius: 14px;
+  background: #ffce67;
+  color: #10103a;
+  padding: 12px;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+button:hover {
+  transform: translateY(-1px);
+}
+
+button.secondary {
+  background: #d6daff;
+}
+
+button.danger {
+  background: #ff7a8f;
+}
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  background: rgba(10, 12, 60, 0.55);
+  padding: 16px;
+}
+
+.modal p,
+.modal ol {
+  font-size: 14px;
+  margin: 10px 0;
+}
+
+.game-screen {
+  padding: 18px;
+  background: linear-gradient(180deg, #f4f6ff 0%, #dfe5ff 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+}
+
+.topbar {
+  width: min(620px, 100%);
+  display: grid;
+  grid-template-columns: 110px 1fr 110px;
+  align-items: center;
+  gap: 10px;
+}
+
+.topbar h2 {
+  text-align: center;
+  font-size: 22px;
+}
+
+.scores {
+  width: min(620px, 100%);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.scores article {
+  background: #fff;
+  border: 3px solid #10103a;
+  border-radius: 12px;
+  text-align: center;
+  padding: 10px;
+}
+
+.scores strong {
+  font-size: 28px;
+}
+
+.board {
+  width: min(620px, 100%);
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  gap: 8px;
+  background: #4852d4;
+  border: 3px solid #10103a;
+  border-radius: 16px;
+  padding: 10px;
+}
+
+.slot {
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  background: #c8ceff;
+  border: 3px solid #10103a;
+  margin: 0;
+  padding: 0;
+}
+
+.slot.red {
+  background: #ff687a;
+}
+
+.slot.yellow {
+  background: #ffd467;
+}
+
+.status {
+  width: min(360px, 100%);
+  background: #fff;
+  border: 3px solid #10103a;
+  border-radius: 14px;
+  text-align: center;
+  padding: 12px;
+}
+
+.status p {
+  margin-bottom: 8px;
+  font-size: 15px;
+}
+
+.status.red-bg {
+  background: #ffcad3;
+}
+
+.status.yellow-bg {
+  background: #fff1c7;
+}
+
+@media (max-width: 620px) {
+  .topbar {
+    grid-template-columns: 95px 1fr 95px;
+  }
+
+  .topbar h2 {
+    font-size: 18px;
+  }
+
+  button {
+    font-size: 14px;
+    padding: 10px;
+  }
+}
