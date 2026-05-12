@@ -13,8 +13,8 @@ This project recreates the classic Frontend Mentor Connect Four experience with:
 
 ## Live Demo
 
-- Repository: [Astrix1234/connect-four-game](https://github.com/rafi983/connect-4-game)
-- Live Site: [https://astrix1234.github.io/connect-four-game/](https://astrix1234.github.io/connect-four-game/)
+- Repository: [rafi983/connect-four-game](https://github.com/rafi983/connect-4-game)
+- Live Site: [connect-4-game/](https://connect-4-game-sage.vercel.app/)
 
 ## Screenshots
 
@@ -171,9 +171,9 @@ npm run deploy
 
 Based on the Frontend Mentor challenge:
 
-- [Connect Four game challenge](https://www.frontendmentor.io/challenges/connect-four-game-6G8QVH923s)
+- [Connect Four game challenge](https://www.frontendmentor.io/challenges/connect-four-game)
 
 ## Author
 
 - Frontend Mentor: [@rafi983](https://www.frontendmentor.io/profile/rafi983)
-- Portfolio: [riz82.vercel.app](https://riz82.vercel.app)
+- Portfolio: [riz82](https://rafizaman.me)
