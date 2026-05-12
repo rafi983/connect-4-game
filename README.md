@@ -171,7 +171,7 @@ npm run deploy
 
 Based on the Frontend Mentor challenge:
 
-- [Connect Four game challenge](https://www.frontendmentor.io/challenges/connect-four-game)
+- [Connect Four game challenge](https://www.frontendmentor.io/challenges/connect-four-game-6G8QVH923s)
 
 ## Author
 
